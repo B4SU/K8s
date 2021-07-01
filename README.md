@@ -1,6 +1,6 @@
 # Kubernetes
 
-### Overview
+### **Overview**
 
 Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem. Kubernetes services, support, and tools are widely available.
 
@@ -16,7 +16,7 @@ Kubernetes objects are persistent entities in the Kubernetes system. Kubernetes 
 ---
 
 
-### Architecture
+### **Architecture**
 
 Kubernetes environment consists of a control plane (master), a distributed storage system for keeping the cluster state consistent (etcd), and a number of cluster nodes (Kubelets).
 
@@ -62,7 +62,7 @@ The Cloud Controller Manager integrates into each public cloud for optimal suppo
 
 <br/>
 
-##### 4. Scheduler (kube-scheduler)
+##### **Scheduler (kube-scheduler)**
 Control plane component that watches for newly created Pods with no assigned node, and selects a node for them to run on.
 Factors taken into account for scheduling decisions include: individual and collective resource requirements, hardware/software/policy constraints, affinity and anti-affinity specifications, data locality, inter-workload interference, and deadlines.
 ___
