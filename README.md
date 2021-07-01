@@ -5,7 +5,7 @@ K8s Cluster: Master & Slave
 
 Can orchestrate container of any type
 
-##### Overview
+#### Overview
 
 Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem. Kubernetes services, support, and tools are widely available.
 
@@ -21,7 +21,7 @@ Kubernetes objects are persistent entities in the Kubernetes system. Kubernetes 
 
 
 
-##### Architecture
+#### Architecture
 
 Kubernetes environment consists of a control plane (master), a distributed storage system for keeping the cluster state consistent (etcd), and a number of cluster nodes (Kubelets).
 
