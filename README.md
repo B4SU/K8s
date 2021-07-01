@@ -24,7 +24,8 @@ Kubernetes environment consists of a control plane (master), a distributed stora
 
 [logo]: https://platform9.com/wp-content/uploads/2019/05/kubernetes-constructs-concepts-architecture.jpg "K"
 
-The control plane is made up of three major components: kube-apiserver, kube-controller-manager and kube-scheduler. All these can run on a single master node, or can be replicated across multiple master nodes for high availability. Control panel components make global decisions about the cluster (for example, scheduling), as well as detecting and responding to cluster events (for example, starting up a new pod when a deployment's replicas field is unsatisfied).
 
 
 #### Control Panel
+
+The control plane is made up of three major components: kube-apiserver, kube-controller-manager and kube-scheduler. All these can run on a single master node, or can be replicated across multiple master nodes for high availability. Control panel components make global decisions about the cluster (for example, scheduling), as well as detecting and responding to cluster events (for example, starting up a new pod when a deployment's replicas field is unsatisfied).
