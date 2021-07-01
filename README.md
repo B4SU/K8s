@@ -19,7 +19,7 @@ Kubernetes objects are persistent entities in the Kubernetes system. Kubernetes 
 ### Architecture
 
 Kubernetes environment consists of a control plane (master), a distributed storage system for keeping the cluster state consistent (etcd), and a number of cluster nodes (Kubelets).
-
+<br/>
 ![alt text][logo]
 
 [logo]: https://platform9.com/wp-content/uploads/2019/05/kubernetes-constructs-concepts-architecture.jpg "K"
@@ -29,16 +29,16 @@ Kubernetes environment consists of a control plane (master), a distributed stora
 #### **Control Plane**
 
 The control plane is made up of three major components: kube-apiserver, kube-controller-manager and kube-scheduler. All these can run on a single master node, or can be replicated across multiple master nodes for high availability. Control plane components make global decisions about the cluster (for example, scheduling), as well as detecting and responding to cluster events (for example, starting up a new pod when a deployment's replicas field is unsatisfied).
-
+<br/>
 ___
-##### 1. API Server (kube-apiserver)
+##### **API Server (kube-apiserver)**
 The API server is the front end for the Kubernetes control plane, it acts as the gateway to the cluster, hence it must be accessible by clients from outside the cluster. Clients authenticate via the API Server, and also use it as a proxy/tunnel to nodes and pods (and services). It also provides api to support for lifecycle orchestration (scaling, updates, and so on) for different types of applications.
 kube-apiserver is designed to scale horizontally, it scales by deploying more instances.
 
 <br/>
 
 
-##### 2. Controller Manager (kube-controller-manager)
+##### **Controller Manager (kube-controller-manager)**
 Control Plane component that runs controller processes.
 Logically, each controller is a separate process, but to reduce complexity, they are all compiled into a single binary and run in a single process.
 
@@ -52,7 +52,7 @@ The Controller Manager is a daemon that runs the core control loops, watches the
 
 <br/>
 
-##### 3. Cloud Controller Manager (cloud-controller-manager)
+##### **Cloud Controller Manager (cloud-controller-manager)**
 
 The Cloud Controller Manager integrates into each public cloud for optimal support of availability zones, VM instances, storage services, and network services for DNS, routing and load balancing. The cloud-controller-manager only runs controllers that are specific to the cloud provider. The cloud-controller-manager combines several logically independent control loops into a single binary that you run as a single process
 
