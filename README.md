@@ -29,3 +29,10 @@ Kubernetes environment consists of a control plane (master), a distributed stora
 #### Control Panel
 
 The control plane is made up of three major components: kube-apiserver, kube-controller-manager and kube-scheduler. All these can run on a single master node, or can be replicated across multiple master nodes for high availability. Control panel components make global decisions about the cluster (for example, scheduling), as well as detecting and responding to cluster events (for example, starting up a new pod when a deployment's replicas field is unsatisfied).
+
+##### API Server (kube-apiserver)
+The API server is the front end for the Kubernetes control plane, it acts as the gateway to the cluster, hence it must be accessible by clients from outside the cluster. Clients authenticate via the API Server, and also use it as a proxy/tunnel to nodes and pods (and services). It also provides api to support for lifecycle orchestration (scaling, updates, and so on) for different types of applications.
+kube-apiserver is designed to scale horizontally, it scales by deploying more instances.
+
+
+##### Scheduler (kube-scheduler)
