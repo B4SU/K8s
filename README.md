@@ -41,7 +41,6 @@ kube-apiserver is designed to scale horizontally, it scales by deploying more in
 
 <br/>
 
-
 ##### **Controller Manager (kube-controller-manager)**
 Control Plane component that runs controller processes.
 Logically, each controller is a separate process, but to reduce complexity, they are all compiled into a single binary and run in a single process.
@@ -65,4 +64,28 @@ The Cloud Controller Manager integrates into each public cloud for optimal suppo
 ##### **Scheduler (kube-scheduler)**
 Control plane component that watches for newly created Pods with no assigned node, and selects a node for them to run on.
 Factors taken into account for scheduling decisions include: individual and collective resource requirements, hardware/software/policy constraints, affinity and anti-affinity specifications, data locality, inter-workload interference, and deadlines.
+
+<br/>
+
+##### **etcd**
+Consistent and highly-available key value store used as Kubernetes' backing store for all cluster data.
+
 ___
+
+#### **Cluster Nodes**
+Cluster nodes are machines that run containers and are managed by the master nodes.
+
+**Node Components**
+- kubelet :
+  An agent that runs on each node in the cluster. It makes sure that containers are running in a Pod.
+  The kubelet takes a set of PodSpecs that are provided through various mechanisms and ensures that the containers described in those PodSpecs are running and healthy. The kubelet doesn't manage containers which were not created by Kubernetes.
+
+- kube-proxy :
+  kube-proxy is a network proxy that runs on each node in your cluster, implementing part of the Kubernetes Service concept. kube-proxy maintains network rules on nodes. These network rules allow network communication to Pods from network sessions inside or outside of the cluster.
+
+  <br/>
+
+**Container runtime**
+The container runtime is the software that is responsible for running containers.
+
+Kubernetes supports several container runtimes: Docker, containerd, CRI-O, and any implementation of the Kubernetes CRI (Container Runtime Interface).
