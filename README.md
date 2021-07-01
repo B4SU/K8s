@@ -35,7 +35,7 @@ ___
 The API server is the front end for the Kubernetes control plane, it acts as the gateway to the cluster, hence it must be accessible by clients from outside the cluster. Clients authenticate via the API Server, and also use it as a proxy/tunnel to nodes and pods (and services). It also provides api to support for lifecycle orchestration (scaling, updates, and so on) for different types of applications.
 kube-apiserver is designed to scale horizontally, it scales by deploying more instances.
 
-\
+<br/>
 
 
 ##### 2. Controller Manager (kube-controller-manager)
@@ -50,13 +50,13 @@ Some types of these controllers are:
 
 The Controller Manager is a daemon that runs the core control loops, watches the state of the cluster, and makes changes to drive status toward the desired state.
 
-\
+<br/>
 
 ##### 3. Cloud Controller Manager (cloud-controller-manager)
 
 The Cloud Controller Manager integrates into each public cloud for optimal support of availability zones, VM instances, storage services, and network services for DNS, routing and load balancing. The cloud-controller-manager only runs controllers that are specific to the cloud provider. The cloud-controller-manager combines several logically independent control loops into a single binary that you run as a single process
 
-\
+<br/>
 
 ##### 4. Scheduler (kube-scheduler)
 Control plane component that watches for newly created Pods with no assigned node, and selects a node for them to run on.
