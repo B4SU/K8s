@@ -89,3 +89,7 @@ Cluster nodes are machines that run containers and are managed by the master nod
 The container runtime is the software that is responsible for running containers.
 
 Kubernetes supports several container runtimes: Docker, containerd, CRI-O, and any implementation of the Kubernetes CRI (Container Runtime Interface).
+
+
+Additional information
+https://kubernetes.io/docs/concepts/overview/components/#addons
