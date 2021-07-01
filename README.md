@@ -35,6 +35,8 @@ ___
 The API server is the front end for the Kubernetes control plane, it acts as the gateway to the cluster, hence it must be accessible by clients from outside the cluster. Clients authenticate via the API Server, and also use it as a proxy/tunnel to nodes and pods (and services). It also provides api to support for lifecycle orchestration (scaling, updates, and so on) for different types of applications.
 kube-apiserver is designed to scale horizontally, it scales by deploying more instances.
 
+\
+\
 
 ##### 2. Controller Manager (kube-controller-manager)
 Control Plane component that runs controller processes.
