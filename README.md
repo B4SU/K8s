@@ -19,7 +19,9 @@ Kubernetes objects are persistent entities in the Kubernetes system. Kubernetes 
 ### Architecture
 
 Kubernetes environment consists of a control plane (master), a distributed storage system for keeping the cluster state consistent (etcd), and a number of cluster nodes (Kubelets).
+
 <br/>
+
 ![alt text][logo]
 
 [logo]: https://platform9.com/wp-content/uploads/2019/05/kubernetes-constructs-concepts-architecture.jpg "K"
@@ -29,7 +31,9 @@ Kubernetes environment consists of a control plane (master), a distributed stora
 #### **Control Plane**
 
 The control plane is made up of three major components: kube-apiserver, kube-controller-manager and kube-scheduler. All these can run on a single master node, or can be replicated across multiple master nodes for high availability. Control plane components make global decisions about the cluster (for example, scheduling), as well as detecting and responding to cluster events (for example, starting up a new pod when a deployment's replicas field is unsatisfied).
+
 <br/>
+
 ___
 ##### **API Server (kube-apiserver)**
 The API server is the front end for the Kubernetes control plane, it acts as the gateway to the cluster, hence it must be accessible by clients from outside the cluster. Clients authenticate via the API Server, and also use it as a proxy/tunnel to nodes and pods (and services). It also provides api to support for lifecycle orchestration (scaling, updates, and so on) for different types of applications.
