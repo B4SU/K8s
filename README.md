@@ -21,4 +21,5 @@ Kubernetes objects are persistent entities in the Kubernetes system. Kubernetes 
 
 ##### Architecture
 Kubernetes environment consists of a control plane (master), a distributed storage system for keeping the cluster state consistent (etcd), and a number of cluster nodes (Kubelets).
+
 [logo]: https://platform9.com/wp-content/uploads/2019/05/kubernetes-constructs-concepts-architecture.jpg
