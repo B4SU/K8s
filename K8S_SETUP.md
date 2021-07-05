@@ -1,9 +1,7 @@
-Install Kubernetes on Ubuntu 18.04 LTS
+##Install Kubernetes on Ubuntu 18.04 LTS
 
 
-*********************
-Step1: On All Machines ( Master & All nodes ):
-**********************
+###Step1: On All Machines ( Master & All nodes ):
 ### INSTALL DOCKER
 
 sudo apt-get update
@@ -59,6 +57,7 @@ kubeadm token create --print-join-command --ttl=0
 
 ### Step1: `On All Machines ( Master & All nodes ):`
 
+```sh
      ### Set SELinux in permissive mode (effectively disabling it)
 
      setenforce 0
@@ -87,6 +86,7 @@ kubeadm token create --print-join-command --ttl=0
 
      yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
      systemctl enable --now kubelet
+```
 
 ### Step2: `On Master only:`
 
