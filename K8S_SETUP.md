@@ -47,6 +47,7 @@ kubectl get all --all-namespaces
 ### Step 3: Slave Nodes only:
 
 Copy the kubeadm join token from master & run it on all nodes
+<br/>
 Ex: kubeadm join 10.128.15.231:6443 --token xxxxx.xxxxxxxxxxxxx \
        --discovery-token-ca-cert-hash sha256:xxxxxx..................................
 
