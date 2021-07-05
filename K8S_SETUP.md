@@ -55,6 +55,9 @@ Ex: kubeadm join 10.128.15.231:6443 --token xxxxx.xxxxxxxxxxxxx \
 
 kubeadm token create --print-join-command --ttl=0
 ```
+<br/>
+<br/>
+<br/>
 
 ## Install Kubernetes on CENTOS
 
@@ -77,7 +80,7 @@ kubeadm token create --print-join-command --ttl=0
 
      ### Install kubeadm,kubelet,kubectl
 
-     cat <<EOF > /etc/yum.repos.d/kubernetes.repo
+     cat <<EOF> /etc/yum.repos.d/kubernetes.repo
      [kubernetes]
      name=Kubernetes
      baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
