@@ -91,5 +91,7 @@ The container runtime is the software that is responsible for running containers
 Kubernetes supports several container runtimes: Docker, containerd, CRI-O, and any implementation of the Kubernetes CRI (Container Runtime Interface).
 
 
+<br/>
+
 Additional information
 https://kubernetes.io/docs/concepts/overview/components/#addons
