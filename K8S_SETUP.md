@@ -1,7 +1,7 @@
 ## Install Kubernetes on Ubuntu 18.04 LTS
 
 
-### Step1: On All Machines ( Master & All nodes ):
+### Step 1: On All Machines ( Master & All nodes ):
 #### INSTALL DOCKER
 
 ```sh
@@ -25,7 +25,7 @@ sudo apt-get install -y kubelet kubeadm kubectl
 ```
 
 
-### Step2: On Master Node:
+### Step 2: Master Node:
 
 ```sh
 sudo kubeadm init --ignore-preflight-errors=all
@@ -34,7 +34,7 @@ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
-## Weave
+#### Weave
 ```sh
 # Network setup
 kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
@@ -44,14 +44,11 @@ kubectl get all --all-namespaces
 ```
 
 
-### Step3: On Nodes only:
+### Step 3: Slave Nodes only:
 
-copy the kubeadm join token from master & run it on all nodes
-
+Copy the kubeadm join token from master & run it on all nodes
 Ex: kubeadm join 10.128.15.231:6443 --token xxxxx.xxxxxxxxxxxxx \
        --discovery-token-ca-cert-hash sha256:xxxxxx..................................
-
-
 
 ```sh
 # To find kubeadm join token use this command in master node
@@ -61,7 +58,7 @@ kubeadm token create --print-join-command --ttl=0
 
 ## Install Kubernetes on CENTOS
 
-### Step1: `On All Machines ( Master & All nodes ):`
+### Step1: On All Machines ( Master & All nodes ):
 
 ```sh
      ### Set SELinux in permissive mode (effectively disabling it)
