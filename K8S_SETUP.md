@@ -48,8 +48,7 @@ kubectl get all --all-namespaces
 
 Copy the kubeadm join token from master & run it on all nodes
 <br/>
-Ex: kubeadm join 10.128.15.231:6443 --token xxxxx.xxxxxxxxxxxxx \
-       --discovery-token-ca-cert-hash sha256:xxxxxx..................................
+Ex: kubeadm join 10.128.15.231:6443 --token xxxxx.xxxxxxxxxxxxx --discovery-token-ca-cert-hash sha256:xxxxxx..................................
 
 ```sh
 # To find kubeadm join token use this command in master node
