@@ -1,9 +1,10 @@
-##Install Kubernetes on Ubuntu 18.04 LTS
+## Install Kubernetes on Ubuntu 18.04 LTS
 
 
-###Step1: On All Machines ( Master & All nodes ):
+### Step1: On All Machines ( Master & All nodes ):
 ### INSTALL DOCKER
 
+```sh
 sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
 
@@ -12,6 +13,7 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 sudo apt-get update ; clear
 sudo apt-get install -y docker-ce
 sudo service docker start ; clear
+```
 
 ### INSTALL KUBEADM,KUBELET,KUBECTL
 
@@ -86,7 +88,8 @@ kubeadm token create --print-join-command --ttl=0
 
      yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
      systemctl enable --now kubelet
-```
+
+```sh
 
 ### Step2: `On Master only:`
 
