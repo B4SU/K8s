@@ -4,8 +4,8 @@ metadata:
   name: myrs
 
 spec:
-  replicas: 3                       # Desired count
-  selector:                         # Condition to check whether pod with label WebServer available
+  replicas: 3
+  selector:
     matchLabels:
       type: WebServer
   template:
