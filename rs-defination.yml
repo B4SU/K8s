@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myrs
+
+spec:
+  replicas: 3                       # Desired count
+  selector:                         # Condition to check whether pod with label WebServer available
+    matchLabels:
+      type: WebServer
+  template:
+    metadata:
+      name: nginx-pod
+      labels:
+        type: WebServer
+        env: QA
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx
