@@ -9,7 +9,7 @@
 
 
 ```sh
-# Creta pod
+# Create basic pod using image
 kubectl run n1 --image nginx
 ```
 
@@ -17,12 +17,12 @@ kubectl run n1 --image nginx
 # Create pod from yaml file
 kubectl create -f pod-defination.yml
 
-# See details about
+# See details about configured pod
 kubectl describe pod mypod
 
 ```
 
 ```sh
-# View manifest file for an image
+# View manifest file of an existing image
 kubectl run pod2 --image nginx --dry-run=client -o yaml
 ```
