@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+  labels:
+    author: B4SU
+    env: QA
+    type: WebServer
+spec:
+  containers:
+    - name: cont1
+      image: nginx

@@ -28,6 +28,9 @@ sudo apt-get install -y kubelet kubeadm kubectl
 ### Step 2: Master Node:
 
 ```sh
+
+#kubeadm init --apiserver-advertise-address $(hostname -i) --pod-network-cidr 10.5.0.0/16
+
 sudo kubeadm init --ignore-preflight-errors=all
 sudo mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
