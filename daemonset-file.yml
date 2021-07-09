@@ -13,5 +13,5 @@ spec:
         type: WebServer
     spec:
       containers:
-        - image: nginx
-          name: c1
+        - name: c1
+          image: nginx
