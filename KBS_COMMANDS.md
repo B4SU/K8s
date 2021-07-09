@@ -64,6 +64,9 @@ kubectl delete pod mypod
 
 #### Replicaset
 
+A ReplicaSet is defined with fields, including a selector that specifies how to identify Pods it can acquire, a number of replicas indicating how many Pods it should be maintaining, and a pod template specifying the data of new Pods it should create to meet the number of replicas criteria. A ReplicaSet then fulfills its purpose by creating and deleting Pods as needed to reach the desired number. When a ReplicaSet needs to create new Pods, it uses its Pod template.
+https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
+
 ReplicaSet ensures that a specified number of pod replicas are running at any given time.
 
 ```sh
@@ -77,6 +80,50 @@ kubectl get pods                        # List pods
 # List pods with custom columns
 kubectl get pods -o=custom-columns=PodName:.metadata.name,Containers:.spec.containers[*].name,Image:.spec.containers[*].image
 ```
+
+
+#### Deployment
+
+Deployments represent a set of multiple, identical Pods with no unique identities. A Deployment runs multiple replicas of your application and automatically replaces any instances that fail or become unresponsive. In this way, Deployments help ensure that one or more instances of your application are available to serve user requests. Deployments are managed by the Kubernetes Deployment controller.
+
+Deployments use a Pod template, which contains a specification for its Pods. The Pod specification determines how each Pod should look like: what applications should run inside its containers, which volumes the Pods should mount, its labels, and more.
+
+When a Deployment's Pod template is changed, new Pods are automatically created one at a time.
+https://cloud.google.com/kubernetes-engine/docs/concepts/deployment
+
+```sh
+# Create service using deployment.yml
+kubectl create -f deployment.yml
+
+
+# RollingUpdate of version
+kubectl set image deploy kubeserve app=leaddevops/kubeserve:v2
+
+
+# Check rollout history
+kubectl rollout history deployment kubeserve
+
+# Rollback to previous version
+kubectl rollback undo deployment kubeserve
+
+# Rollback to particular version
+kubectl rollback undo deployment kubeserve --to-revision=1
+
+```
+
+#### DaemonSet
+
+A DaemonSet ensures that all (or some) Nodes run a copy of a Pod. As nodes are added to the cluster, Pods are added to them. As nodes are removed from the cluster, those Pods are garbage collected. Deleting a DaemonSet will clean up the Pods it created.
+
+Some typical uses of a DaemonSet are:
+
+running a cluster storage daemon on every node
+running a logs collection daemon on every node
+running a node monitoring daemon on every node
+In a simple case, one DaemonSet, covering all nodes, would be used for each type of daemon. A more complex setup might use multiple DaemonSets for a single type of daemon, but with different flags and/or different memory and cpu requests for different hardware types.
+
+
+
 
 ---
 <br/>
@@ -143,28 +190,7 @@ kubectl create -f svc2.yml
 <br/>
 
 
-### Deployments
 
-
-```sh
-# Create service using deployment.yml
-kubectl create -f deployment.yml
-
-
-# RollingUpdate of version
-kubectl set image deploy kubeserve app=leaddevops/kubeserve:v2
-
-
-# Check rollout history
-kubectl rollout history deployment kubeserve
-
-# Rollback to previous version
-kubectl rollback undo deployment kubeserve
-
-# Rollback to particular version
-kubectl rollback undo deployment kubeserve --to-revision=1
-
-```
 
 ---
 <br/>

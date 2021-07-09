@@ -1,0 +1,17 @@
+apiVersion: apps/V1
+kind: DaemonSet
+metadata:
+  name: myds
+spec:
+  selector:
+    matchLabels:
+      type: WebServer
+  template:
+    metadata:
+      name: mypod
+      labels:
+        type: WebServer
+    spec:
+      containers:
+        - image: nginx
+          name: C1
