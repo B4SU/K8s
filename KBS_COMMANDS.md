@@ -42,7 +42,7 @@ kubectl run pod2 --image nginx --dry-run=client -o yaml
 ```
 
 ```sh
-# Delete pod 
+# Delete pod
 kubectl delete pod mypod
 ```
 
@@ -52,3 +52,49 @@ kubectl delete pod mypod
 #### Replicaset
 
 ReplicaSet ensures that a specified number of pod replicas are running at any given time.
+
+```sh
+kubectl create -f rs-defination.yml     # Create pods using replicaset defination file
+kubectl describe rs <replicaset-name>   # Get details about the replicaset
+```
+```sh
+kubectl get replicaset                  # List replicaset
+kubectl get pods                        # List pods
+
+# List pods with custom columns
+kubectl get pods -o=custom-columns=PodName:.metadata.name,Containers:.spec.containers[*].name,Image:.spec.containers[*].image
+```
+
+
+### Services
+Services are the Kubernetes way of configuring a proxy to forward traffic to a set of pods.
+A Service in Kubernetes is an abstraction which defines a logical set of Pods and a policy by which to access them. Services enable a loose coupling between dependent Pods. The set of Pods targeted by a Service is usually determined by a LabelSelector.
+
+Although each Pod has a unique IP address, those IPs are not exposed outside the cluster without a Service. Services allow your applications to receive traffic. Services can be exposed in different ways by specifying a type in the ServiceSpec:
+
+- ClusterIP (default) - Exposes the Service on an internal IP in the cluster. This type makes the Service only reachable from within the cluster.
+- NodePort - Exposes the Service on the same port of each selected Node in the cluster using NAT. Makes a Service accessible from outside the cluster using <NodeIP>:<NodePort>. Superset of ClusterIP.
+- LoadBalancer - Creates an external load balancer in the current cloud (if supported) and assigns a fixed, external IP to the Service. Superset of NodePort.
+- ExternalName - Maps the Service to the contents of the externalName field (e.g. `foo.bar.example.com`), by returning a CNAME record with its value. No proxying of any kind is set up. This type requires v1.7 or higher of kube-dns, or CoreDNS version 0.0.8 or higher.
+
+
+#### NodePort
+
+
+
+```yaml
+# Manifest file svc1.yml
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysvc
+spec:
+  type: NodePort
+  ports:
+    - targetPort: 80    # POD port
+      port: 80          # Service port
+      nodePort: 30001   # Node port
+  selector:
+    type: WebServer
+```
