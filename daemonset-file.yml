@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
         - image: nginx
-          name: C1
+          name: c1
