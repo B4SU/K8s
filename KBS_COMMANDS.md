@@ -7,6 +7,18 @@ Every Kubernetes Node runs at least:
 Kubelet, a process responsible for communication between the Kubernetes Master and the Node; it manages the Pods and the containers running on a machine.
 A container runtime (like Docker) responsible for pulling the container image from a registry, unpacking the container, and running the application.
 
+
+```sh
+kubeadm init --apiserver-advertise-address $(hostname -i) --pod-network-cidr 10.5.0.0/16
+
+# Initialize cuslter networking
+kubectl apply -f https://raw.githubusercontent.com/cloudnativelabs/kube-router/master/daemonset/kubeadm-kuberouter.yaml
+
+# Weave network
+kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+
+```
+
 ---
 <br/>
 
@@ -129,3 +141,27 @@ kubectl create -f svc2.yml
 
 ---
 <br/>
+
+
+### Deployments
+
+
+```sh
+# Create service using deployment.yml
+kubectl create -f deployment.yml
+
+
+# RollingUpdate of version
+kubectl set image deploy kubeserve app=leaddevops/kubeserve:v2
+
+
+# Check rollout history
+kubectl rollout history deployment kubeserve
+
+# Rollback to previous version
+kubectl rollback undo deployment kubeserve
+
+# Rollback to particular version
+kubectl rollback undo deployment kubeserve --to-revision=1
+
+```
