@@ -1,4 +1,4 @@
-apiVersion: extensions/V1
+apiVersion: apps/V1
 kind: DaemonSet
 metadata:
   name: myds
