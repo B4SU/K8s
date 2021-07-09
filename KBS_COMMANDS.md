@@ -8,6 +8,7 @@ Kubelet, a process responsible for communication between the Kubernetes Master a
 A container runtime (like Docker) responsible for pulling the container image from a registry, unpacking the container, and running the application.
 
 ---
+<br/>
 
 ### PODs
 A Pod is a Kubernetes abstraction that represents a group of one or more application containers (such as Docker), and some shared resources for those containers. A Pod models an application-specific "logical host" and can contain different application containers which are relatively tightly coupled. Pods are the atomic unit on the Kubernetes platform. When we create a Deployment on Kubernetes, that Deployment creates Pods with containers inside them (as opposed to creating containers directly). Each Pod is tied to the Node where it is scheduled, and remains there until termination (according to restart policy) or deletion. In case of a Node failure, identical Pods are scheduled on other available Nodes in the cluster.
@@ -66,6 +67,7 @@ kubectl get pods -o=custom-columns=PodName:.metadata.name,Containers:.spec.conta
 ```
 
 ---
+<br/>
 
 ### Services
 Services are the Kubernetes way of configuring a proxy to forward traffic to a set of pods.
@@ -101,3 +103,4 @@ spec:
 ```
 
 ---
+<br/>
