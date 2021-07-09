@@ -82,9 +82,6 @@ Although each Pod has a unique IP address, those IPs are not exposed outside the
 
 
 #### NodePort
-
-
-
 ```yaml
 # Manifest file svc1.yml
 
@@ -100,6 +97,34 @@ spec:
       nodePort: 30001   # Node port
   selector:
     type: WebServer
+```
+
+```sh
+# Create service  object of type nodeport
+kubectl create -f svc1.yml
+```
+
+
+#### LoadBalancer
+```yaml
+# Manifest file svc2.yml
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysvc
+spec:
+  type: LoadBalancer
+  ports:
+    - targetPort: 80    # POD port
+      port: 80          # Service port
+  selector:
+    type: WebServer
+
+```
+
+```sh
+# Create service  object of type nodeport
+kubectl create -f svc2.yml
 ```
 
 ---
