@@ -165,3 +165,18 @@ kubectl rollback undo deployment kubeserve
 kubectl rollback undo deployment kubeserve --to-revision=1
 
 ```
+
+---
+<br/>
+
+
+### Dashboard
+
+```sh
+#
+kubectl create -f dashboard.yml
+```
+
+
+---
+<br/>
