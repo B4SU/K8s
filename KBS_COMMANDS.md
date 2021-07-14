@@ -122,7 +122,12 @@ running a logs collection daemon on every node
 running a node monitoring daemon on every node
 In a simple case, one DaemonSet, covering all nodes, would be used for each type of daemon. A more complex setup might use multiple DaemonSets for a single type of daemon, but with different flags and/or different memory and cpu requests for different hardware types.
 
+```sh
+kubectl create -f daemonset-file.yml
 
+kubectl get pods -o wide
+
+```
 
 
 ---
