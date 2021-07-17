@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
        - name: app
-         image: nginx
+         image: sonal04/addressbook:v1
 
          #image: leaddevops/kubeserve:v1
 
